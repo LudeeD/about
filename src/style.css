@@ -1,0 +1,154 @@
+:root {
+    --bg: white;
+    --text: black;
+    --badge-bg: #d6d3d1;
+    --crosshair: rgba(0, 0, 0, 0.2);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --bg: #111;
+        --text: #e5e5e5;
+        --badge-bg: #333;
+        --crosshair: rgba(255, 255, 255, 0.2);
+    }
+}
+
+[data-theme="dark"] {
+    --bg: #111;
+    --text: #e5e5e5;
+    --badge-bg: #333;
+    --crosshair: rgba(255, 255, 255, 0.2);
+}
+
+body {
+    font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Oxygen, Ubuntu, Cantarell, sans-serif;
+    max-width: 896px;
+    margin: 0 auto;
+    padding: 16px;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.4;
+}
+
+.section {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+p {
+    margin: 4px 0;
+}
+
+h1,
+h2,
+h3 {
+    margin: 4px 0;
+}
+
+.title-xl {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.title-4xl {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.list-disc {
+    list-style-type: disc;
+    list-style-position: inside;
+}
+
+.age-badge {
+    background-color: var(--badge-bg);
+    font-family: monospace;
+    padding: 0 8px;
+}
+
+.links-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.link {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 2px;
+    color: inherit;
+}
+
+.link:hover {
+    text-decoration-color: #d946ef;
+}
+
+.link-blue:hover {
+    text-decoration-color: #3b82f6;
+}
+
+.back-link {
+    margin-bottom: 16px;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    padding: 4px;
+    z-index: 10000;
+    color: var(--text);
+}
+
+html,
+body,
+* {
+    cursor: none !important;
+}
+
+html {
+    min-height: 100vh;
+}
+
+.crosshair-h,
+.crosshair-v {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    background: var(--crosshair);
+    visibility: hidden;
+}
+
+.crosshair-h {
+    width: 100vw;
+    height: 1px;
+    left: 0;
+}
+
+.crosshair-v {
+    width: 1px;
+    height: 100vh;
+    top: 0;
+}
+
+@media (hover: none) {
+    html,
+    body,
+    * {
+        cursor: auto !important;
+    }
+
+    .crosshair-h,
+    .crosshair-v {
+        display: none;
+    }
+}
