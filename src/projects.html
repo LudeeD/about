@@ -137,6 +137,8 @@
             document.addEventListener("mousemove", (e) => {
                 ch.style.top = e.clientY + "px";
                 cv.style.left = e.clientX + "px";
+                ch.style.setProperty("--x", e.clientX + "px");
+                cv.style.setProperty("--y", e.clientY + "px");
                 ch.style.visibility = "visible";
                 cv.style.visibility = "visible";
             });

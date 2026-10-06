@@ -2,7 +2,8 @@
     --bg: white;
     --text: black;
     --badge-bg: #d6d3d1;
-    --crosshair: rgba(0, 0, 0, 0.2);
+    --crosshair: rgba(0, 0, 0, 0.1);
+    --crosshair-center: rgba(0, 0, 0, 0.8);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -10,7 +11,8 @@
         --bg: #111;
         --text: #e5e5e5;
         --badge-bg: #333;
-        --crosshair: rgba(255, 255, 255, 0.2);
+        --crosshair: rgba(255, 255, 255, 0.1);
+        --crosshair-center: rgba(255, 255, 255, 0.8);
     }
 }
 
@@ -18,7 +20,8 @@
     --bg: #111;
     --text: #e5e5e5;
     --badge-bg: #333;
-    --crosshair: rgba(255, 255, 255, 0.2);
+    --crosshair: rgba(255, 255, 255, 0.1);
+    --crosshair-center: rgba(255, 255, 255, 0.8);
 }
 
 body {
@@ -124,7 +127,6 @@ html {
     position: fixed;
     pointer-events: none;
     z-index: 9999;
-    background: var(--crosshair);
     visibility: hidden;
 }
 
@@ -132,12 +134,24 @@ html {
     width: 100vw;
     height: 1px;
     left: 0;
+    background: linear-gradient(
+        to right,
+        var(--crosshair) calc(var(--x) - 16px),
+        var(--crosshair-center) var(--x),
+        var(--crosshair) calc(var(--x) + 16px)
+    );
 }
 
 .crosshair-v {
     width: 1px;
     height: 100vh;
     top: 0;
+    background: linear-gradient(
+        to bottom,
+        var(--crosshair) calc(var(--y) - 16px),
+        var(--crosshair-center) var(--y),
+        var(--crosshair) calc(var(--y) + 16px)
+    );
 }
 
 @media (hover: none) {

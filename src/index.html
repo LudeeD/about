@@ -54,10 +54,18 @@
                 developed a taste for security in computer systems.
             </p>
             <p>
-                Currently, I am working at
+                Most recently, I was working at
                 <a class="link" href="https://www.teton.ai/">Teton.ai</a> where
-                we are trying to shape the future of healthcare 👨‍⚕️. We work with
-                AI, computer vision and powerfull embedded systems.
+                we were trying to shape the future of healthcare 👨‍⚕️. We worked
+                with AI, computer vision and powerful embedded systems.
+            </p>
+
+            <p>
+                Now I am searching for my next adventure 🧭, so if you think
+                we could build something great together,
+                <a class="link" href="mailto:luiscomsnofim@gmail.com"
+                    >let me know</a
+                >!
             </p>
 
             <p>
@@ -132,6 +140,8 @@
             document.addEventListener("mousemove", (e) => {
                 ch.style.top = e.clientY + "px";
                 cv.style.left = e.clientX + "px";
+                ch.style.setProperty("--x", e.clientX + "px");
+                cv.style.setProperty("--y", e.clientY + "px");
                 ch.style.visibility = "visible";
                 cv.style.visibility = "visible";
             });
